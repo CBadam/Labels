@@ -104,31 +104,31 @@ def main():
                     price_dec="€"+f'{(int(price*100%100))}'
                     # product_text_start_x, product_text_start_y, product_font=text_frame(product, 
                     #             [product_x+c*stepx,product_y+r*stepy,product_x+product_w+c*stepx,product_y+product_h+r*stepy], 
-                    #         "arialbd.ttf", text_h_placement='center', text_v_placement='center',font_size=30)
+                    #         "./arialbd.ttf", text_h_placement='center', text_v_placement='center',font_size=30)
                     product_text_start_x, product_text_start_y, product_font=text_frame(product, 
                                 [bordure_int_x,bordure_int_y,bordure_int_x+bordure_int_w,bordure_int_y+bordure_int_h], 
-                            "arialbd.ttf", text_h_placement='center', text_v_placement='center',font_size=30)
+                            "./arialbd.ttf", text_h_placement='center', text_v_placement='center',font_size=30)
                     product_text=Text(product, 
                                     [product_text_start_x,product_text_start_y], 
                                     black_color, 
                                     product_font)
                     # price_text_start_x, price_text_start_y, price_font=text_frame(price, 
                     #             [price_x+c*stepx,price_y+r*stepy,price_x+price_w+c*stepx,price_y+price_h+r*stepy], 
-                    #         "arialbd.ttf", text_h_placement='center', text_v_placement='center',font_size=50)
+                    #         "./arialbd.ttf", text_h_placement='center', text_v_placement='center',font_size=50)
                     # price_text=Text(price, 
                     #                 [price_text_start_x,price_text_start_y], 
                     #                 black_color, 
                     #                 price_font)
                     price_int_text_start_x, price_int_text_start_y, price_int_font=text_frame(price_int, 
                                 [price_int_x+c*stepx,price_int_y+r*stepy,price_int_x+price_int_w+c*stepx,price_int_y+price_int_h+r*stepy], 
-                            "arialbd.ttf", text_h_placement='right', text_v_placement='center',font_size=90)
+                            "./arialbd.ttf", text_h_placement='right', text_v_placement='center',font_size=90)
                     price_int_text=Text(price_int, 
                                     [price_int_text_start_x,price_int_text_start_y], 
                                     black_color, 
                                     price_int_font)
                     price_dec_text_start_x, price_dec_text_start_y, price_dec_font=text_frame(price_dec, 
                                 [price_dec_x+c*stepx,price_dec_y+r*stepy,price_dec_x+price_dec_w+c*stepx,price_dec_y+price_dec_h+r*stepy], 
-                            "arialbd.ttf", text_h_placement='left', text_v_placement='top',font_size=50)
+                            "./arialbd.ttf", text_h_placement='left', text_v_placement='top',font_size=50)
                     price_dec_text=Text(price_dec, 
                                     [price_dec_text_start_x,price_dec_text_start_y], 
                                     black_color, 
@@ -162,7 +162,7 @@ def main():
         #     price=st.session_state.df.loc[i,"price"]
         #     product_text_start_x, product_text_start_y, product_font=text_frame(product, 
         #                 [product_x,product_y,product_x+product_w,product_y+product_h], 
-        #                "arialbd.ttf", text_h_placement='center', text_v_placement='center')
+        #                "./arialbd.ttf", text_h_placement='center', text_v_placement='center')
         #     product_text=Text(product, 
         #                       [product_text_start_x,product_text_start_y], 
         #                       black_color, 
