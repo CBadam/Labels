@@ -4,9 +4,7 @@ from PIL import Image, ImageDraw, ImageOps, ImageFont
 import numpy as np
 from draw import *
 import pandas as pd
-from ironpdf import *
-pdf = ImageToPdfConverter.ImageToPdf("win to pay.png")
-pdf.SaveAs("image-to-pdf.pdf")
+import img2pdf
 
 
 if 'filename' not in st.session_state:
@@ -151,6 +149,13 @@ def main():
         page_nbr+=1
         Rectangle.clear_rectangles()
         Text.clear_texts()
+        
+        # converting into chunks using img2pdf
+        pdf_bytes = img2pdf.convert(image_new)
+        # opening or creating pdf file
+        file = open("file.pdf", "wb")
+        # writing pdf files with chunks
+        file.write(pdf_bytes)
         
         # for i in range(len(st.session_state.df)):
         #     product=st.session_state.df.loc[i,"product"]
