@@ -162,11 +162,12 @@ def main():
 
 
     image_new.save("imgBook.PDF", save_all=True)
-    st.download_button(
-        label="Download data as PDF",
-        data=pdf,
-        file_name="imgBook.PDF",
-    )
+    with open("imgBook.PDF", "rb") as file:
+        st.download_button(
+            label="Download data as PDF",
+            data=file,
+            file_name="imgBook.PDF",
+        )
 
 
 
