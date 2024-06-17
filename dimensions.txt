@@ -1,0 +1,10 @@
+First price: x= 40mm y=35mm width= 31mm height=9mm
+stepx=65.5 stepy=35.5
+
+First article name: x=10mm y=25mm width=60 height
+stepx=65,5 stepy=35mm
+
+A4: 	210mm x 297mm
+
+
+big rectangle: x=7.5mm y=23.5mm width=65mm height 35mm
