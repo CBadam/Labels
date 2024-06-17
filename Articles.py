@@ -73,6 +73,7 @@ def main():
     number_of_products=len(st.session_state.df)
     cnt=0
     page_nbr=0
+    images=[]
     while cnt<number_of_products:
 
         image_new = Image.new("RGB", (width, height), white_color)
@@ -144,6 +145,7 @@ def main():
         
         st.image(image_new, caption='reconstructed image')
         st.image(image_mashup, caption='all together')
+        images.append(image_new)
         page_nbr+=1
         Rectangle.clear_rectangles()
         Text.clear_texts()
@@ -160,8 +162,9 @@ def main():
         #                       black_color, 
         #                       product_font)
 
-
-    image_new.save("imgBook.PDF", save_all=True)
+    first_image = images[0]
+    additional_images = images[1:]
+    first_image.save("imgBook.PDF", save_all=True,append_images=additional_images)
     with open("imgBook.PDF", "rb") as file:
         st.download_button(
             label="Download data as PDF",
