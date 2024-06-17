@@ -1,3 +1,4 @@
 streamltit
 Pillow
 numpy
+ironpdf

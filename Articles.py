@@ -4,6 +4,9 @@ from PIL import Image, ImageDraw, ImageOps, ImageFont
 import numpy as np
 from draw import *
 import pandas as pd
+from ironpdf import *
+pdf = ImageToPdfConverter.ImageToPdf("win to pay.png")
+pdf.SaveAs("image-to-pdf.pdf")
 
 
 if 'filename' not in st.session_state:
@@ -143,6 +146,8 @@ def main():
         
         st.image(image_new, caption='reconstructed image')
         st.image(image_mashup, caption='all together')
+        pdf = ImageToPdfConverter.ImageToPdf(image_new)
+        pdf.SaveAs("image-to-pdf.pdf")
         page_nbr+=1
         Rectangle.clear_rectangles()
         Text.clear_texts()
