@@ -73,7 +73,6 @@ def main():
     number_of_products=len(st.session_state.df)
     cnt=0
     page_nbr=0
-    images=[]
     while cnt<number_of_products:
 
         image_new = Image.new("RGB", (width, height), white_color)
@@ -148,7 +147,6 @@ def main():
         page_nbr+=1
         Rectangle.clear_rectangles()
         Text.clear_texts()
-        images.append(image_new)
         
         
         # for i in range(len(st.session_state.df)):
@@ -163,7 +161,7 @@ def main():
         #                       product_font)
 
 
-    im1.save("imgBook.PDF", save_all=True, append_images=images)
+    image_new.save("imgBook.PDF", save_all=True)
 
 
 
