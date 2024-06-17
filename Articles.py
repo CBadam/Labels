@@ -73,6 +73,7 @@ def main():
     number_of_products=len(st.session_state.df)
     cnt=0
     page_nbr=0
+    images=[]
     while cnt<number_of_products:
 
         image_new = Image.new("RGB", (width, height), white_color)
@@ -147,13 +148,8 @@ def main():
         page_nbr+=1
         Rectangle.clear_rectangles()
         Text.clear_texts()
+        images.append(image_new)
         
-        # converting into chunks using img2pdf
-        pdf_bytes = img2pdf.convert(image_new)
-        # opening or creating pdf file
-        file = open("file.pdf", "wb")
-        # writing pdf files with chunks
-        file.write(pdf_bytes)
         
         # for i in range(len(st.session_state.df)):
         #     product=st.session_state.df.loc[i,"product"]
@@ -167,7 +163,7 @@ def main():
         #                       product_font)
 
 
-    
+    im1.save("imgBook.PDF", save_all=True, append_images=images)
 
 
 
