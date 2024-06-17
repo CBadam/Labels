@@ -66,7 +66,7 @@ def text_frame(text, framebox, font_type, text_h_placement='center', text_v_plac
         else:
             done=True
     # Calculate starting point coordinates for text (for centered text)
-    text_width2, text_height2 = font.getsize(text)
+    text_width2, text_height2 = font.getlength(text)
     match text_h_placement:
         case 'center':
             text_start_x = int((framebox[2] + framebox[0]) / 2) - int(text_width2 / 2)
