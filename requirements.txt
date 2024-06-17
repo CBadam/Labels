@@ -1,4 +1,4 @@
 streamlit
-Pillow
+Pillow==9.5.0
 numpy
 img2pdf
