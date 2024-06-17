@@ -144,8 +144,6 @@ def main():
         
         st.image(image_new, caption='reconstructed image')
         st.image(image_mashup, caption='all together')
-        pdf = ImageToPdfConverter.ImageToPdf(image_new)
-        pdf.SaveAs("image-to-pdf.pdf")
         page_nbr+=1
         Rectangle.clear_rectangles()
         Text.clear_texts()
