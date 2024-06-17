@@ -2,8 +2,6 @@ import streamlit as st
 import os
 from PIL import Image, ImageDraw, ImageOps, ImageFont
 import numpy as np
-import zipfile
-from streamlit_image_comparison import image_comparison
 from draw import *
 import pandas as pd
 
