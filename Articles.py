@@ -74,12 +74,15 @@ def main():
     cnt=0
     page_nbr=0
     images_with_bg=[]
+    images_with_new_bg=[]
     images=[]
     while cnt<number_of_products:
 
         image_new = Image.new("RGB", (width, height), white_color)
         image_background = Image.open("bg.png")
+        image_new_background=Image.open("new_bg.png")
         image_mashup=image_background
+        image_new_mashup=image_new_background
         for r in range (number_of_rows):
         
             for c in range (number_of_columns):
@@ -140,14 +143,19 @@ def main():
         for rect in Rectangle.rectangles:
             image_new = rect.draw(image_new)
             image_mashup=rect.draw(image_mashup)
+            image_new_mashup=rect.draw(image_new_mashup)
         for text in Text.texts:
             image_new = text.draw(image_new)
             image_mashup=text.draw(image_mashup)
+            image_new_mashup=text.draw(image_new_mashup)
         
         st.image(image_new, caption='reconstructed image')
         st.image(image_mashup, caption='all together')
+        st.image(image_new_mashup,caption='new_background')
         images.append(image_new)
         images_with_bg.append(image_mashup)
+        images_with_new_bg.append(image_new_mashup)
+        image_new_mashup
         page_nbr+=1
         Rectangle.clear_rectangles()
         Text.clear_texts()
