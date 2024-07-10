@@ -66,7 +66,17 @@ product_h=9*mm_to_pixels
 number_of_columns=3
 number_of_rows=7
 
-
+# Define the scaling factor
+scaling_factor = 1.03
+# Calculate the new size
+new_width = int(width * scaling_factor)
+new_height = int(height * scaling_factor)
+new_size = (new_width, new_height)
+# Calculate the crop box to the original size
+new_left = (new_width - width) / 2
+new_top = (new_height - height) / 2
+new_right = left + width
+new_bottom = top + height
 
 def main():
     st.title("Tickets produits épicerie")
@@ -148,11 +158,14 @@ def main():
             image_new = text.draw(image_new)
             image_mashup=text.draw(image_mashup)
             image_new_mashup=text.draw(image_new_mashup)
-        
-        st.image(image_new, caption='reconstructed image')
+        # Resize the image
+        resized_image = image_new.resize(new_size, Image.ANTIALIAS)
+        # Crop the image to the original size
+        cropped_image = resized_image.crop((new_left, new_top, new_right, new_bottom))
+        st.image(cropped_image, caption='reconstructed image')
         st.image(image_mashup, caption='all together')
         st.image(image_new_mashup,caption='new_background')
-        images.append(image_new)
+        images.append(cropped_image)
         images_with_bg.append(image_mashup)
         images_with_new_bg.append(image_new_mashup)
         image_new_mashup
