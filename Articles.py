@@ -75,8 +75,8 @@ new_size = (new_width, new_height)
 # Calculate the crop box to the original size
 new_left = (new_width - width) / 2
 new_top = (new_height - height) / 2
-new_right = left + width
-new_bottom = top + height
+new_right = new_left + width
+new_bottom = new_top + height
 
 def main():
     st.title("Tickets produits épicerie")
