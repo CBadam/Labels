@@ -89,10 +89,6 @@ def main():
     while cnt<number_of_products:
 
         image_new = Image.new("RGB", (width, height), white_color)
-        image_background = Image.open("bg.png")
-        image_new_background=Image.open("new_bg.png")
-        image_mashup=image_background
-        image_new_mashup=image_new_background
         for r in range (number_of_rows):
         
             for c in range (number_of_columns):
@@ -155,21 +151,14 @@ def main():
                 
         for rect in Rectangle.rectangles:
             image_new = rect.draw(image_new)
-            image_mashup=rect.draw(image_mashup)
-            image_new_mashup=rect.draw(image_new_mashup)
         for text in Text.texts:
             image_new = text.draw(image_new)
-            image_mashup=text.draw(image_mashup)
-            image_new_mashup=text.draw(image_new_mashup)
         # Resize the image
         resized_image = image_new.resize(new_size, Image.ANTIALIAS)
         # Crop the image to the original size
         cropped_image = resized_image.crop((new_left, new_top, new_right, new_bottom))
         st.image(cropped_image, caption='reconstructed image')
         images.append(cropped_image)
-        images_with_bg.append(image_mashup)
-        images_with_new_bg.append(image_new_mashup)
-        image_new_mashup
         page_nbr+=1
         Rectangle.clear_rectangles()
         Text.clear_texts()
@@ -194,15 +183,6 @@ def main():
             label="Download Document Final",
             data=file,
             file_name="Document_final.PDF",
-        )
-    first_image = images_with_bg[0]
-    additional_images = images_with_bg[1:]
-    first_image.save("Document_test.PDF", save_all=True,append_images=additional_images)
-    with open("Document_test.PDF", "rb") as file:
-        st.download_button(
-            label="Download Document Test",
-            data=file,
-            file_name="Document_test.PDF",
         )
 
 
