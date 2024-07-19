@@ -116,7 +116,10 @@ def main():
                     product=st.session_state.df.loc[i,"product"]
                     price=st.session_state.df.loc[i,"price"]
                     price_int=str(int(price))
-                    price_dec="€"+f'{(int(price*100%100))}'
+                    if int(price*100%100)!=0:
+                        price_dec="€"+f'{(int(price*100%100))}'
+                    else:
+                        price_dec="€"
                     # product_text_start_x, product_text_start_y, product_font=text_frame(product, 
                     #             [product_x+c*stepx,product_y+r*stepy,product_x+product_w+c*stepx,product_y+product_h+r*stepy], 
                     #         "./arialbd.ttf", text_h_placement='center', text_v_placement='center',font_size=30)
