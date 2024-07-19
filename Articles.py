@@ -166,8 +166,6 @@ def main():
         # Crop the image to the original size
         cropped_image = resized_image.crop((new_left, new_top, new_right, new_bottom))
         st.image(cropped_image, caption='reconstructed image')
-        st.image(image_mashup, caption='all together')
-        st.image(image_new_mashup,caption='new_background')
         images.append(cropped_image)
         images_with_bg.append(image_mashup)
         images_with_new_bg.append(image_new_mashup)
