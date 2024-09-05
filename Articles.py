@@ -147,12 +147,16 @@ def main():
                                     [price_dec_text_start_x,price_dec_text_start_y], 
                                     black_color, 
                                     price_dec_font)
+                    img_overlay = ImageOverlay('bar_code.png', int(bordure_int_x+10), int(bordure_int_y+140))
                     cnt+=1
                 
         for rect in Rectangle.rectangles:
             image_new = rect.draw(image_new)
         for text in Text.texts:
             image_new = text.draw(image_new)
+        for overlay_image in ImageOverlay.overlays:
+            image_new = overlay_image.draw(image_new)
+        
         # Resize the image
         resized_image = image_new.resize(new_size, Image.ANTIALIAS)
         # Crop the image to the original size
@@ -162,6 +166,7 @@ def main():
         page_nbr+=1
         Rectangle.clear_rectangles()
         Text.clear_texts()
+        ImageOverlay.clear_overlays()
         
         
         # for i in range(len(st.session_state.df)):

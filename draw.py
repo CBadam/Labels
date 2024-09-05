@@ -87,3 +87,22 @@ def text_frame(text, framebox, font_type, text_h_placement='center', text_v_plac
             text_start_y = int((framebox[3] + framebox[1]) / 2) - int(text_height / 2) - int(text_height2 - text_height)
     return text_start_x, text_start_y, font
 
+class ImageOverlay:
+    overlays = []
+    
+    def __init__(self, image_path, pos_x, pos_y):
+        self.image = Image.open(image_path)  # Load the image (no need for RGBA conversion)
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+        ImageOverlay.overlays.append(self)
+    
+    def draw(self, base_image):
+        # Create a temporary image the size of the base image to paste the overlay
+        temp_image = base_image.copy()
+        temp_image.paste(self.image, (self.pos_x, self.pos_y))
+        
+        return temp_image
+
+    @classmethod
+    def clear_overlays(cls):
+        cls.overlays = []
