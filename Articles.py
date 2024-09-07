@@ -147,7 +147,7 @@ def main():
                                     [price_dec_text_start_x,price_dec_text_start_y], 
                                     black_color, 
                                     price_dec_font)
-                    img_overlay = ImageOverlay('bar_code.png', int(bordure_int_x+10), int(bordure_int_y+140))
+                    img_overlay = ImageOverlay('bar_code.png', int(bordure_int_x-20), int(bordure_int_y+170))
                     cnt+=1
                 
         for rect in Rectangle.rectangles:
